@@ -9,7 +9,7 @@ package gal.teis.examen_Ejercicio;
  *
  * @author luPinheio
  */
-class Trabajador {
+public abstract class Trabajador {
 
     private String nombre;
     private int edad;
@@ -20,6 +20,9 @@ class Trabajador {
     public static int ANT_NOVATO = 0;
     public static int ANT_MADURO = 1;
     public static int ANT_EXPERTO = 2;
+    
+    public abstract double mostrarSalarioLiquido();
+    public abstract double mostrarRetencion ();
 
     public Trabajador(String nombre, int edad, int antiguedad) {
         this.nombre = nombre;
@@ -27,7 +30,14 @@ class Trabajador {
         this.antiguedad = antiguedad;
     }
 
-    public String getNombre() {
+
+	public Trabajador(String nombre2, int edad2) {
+		this.nombre = nombre2;
+        this.edad = edad2;
+	}
+
+
+	public String getNombre() {
         return nombre;
     }
 
@@ -91,7 +101,7 @@ class Trabajador {
         Trabajador.ANT_EXPERTO = ANT_EXPERTO;
     }
 
-    //mÃ©todo
+    //método
     public double calcularSueldo() {
 
         double sueldo = 0; //en base a la antiguedad
