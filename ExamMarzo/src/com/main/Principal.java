@@ -7,10 +7,11 @@ package gal.teis.examen_Ejercicio;
 
 import java.util.Scanner;
 import gal.teis.examen_Ejercicio.Empleado;
+import java.util.ArrayList;
 
 /**
  *
- * @author lu134632
+ * @author lu
  */
 public class Principal {
 
@@ -18,6 +19,9 @@ public class Principal {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+         ArrayList<Trabajador> listaEmpleados = new ArrayList();
+          ArrayList<Trabajador> listaDirectivos = new ArrayList();
+          
          Scanner sc = new Scanner(System.in);
         int opcion=0;
     
@@ -31,12 +35,14 @@ public class Principal {
             switch (opcion) {
 
                 case 1:
-             
+                    Empleado e = crearEmpleados();
+                    listaEmpleados.add(e);
                  
                     break;
 
                 case 2:
-                    System.out.println("Crear Directivos");
+                   Directivo d= crearDirectivos();
+                   listaDirectivos.add(d);
                     break;
 
                 case 3:
@@ -76,6 +82,54 @@ public class Principal {
     }
 
    
-
-   
+static Empleado crearEmpleados() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Crear un empleado");
+        String nombreEmpleado = sc.nextLine();
+        System.out.println("Edad del empleado");
+        int edadEmpleado= sc.nextInt();
+        Empleado empelados= new Empleado (nombreEmpleado,edadEmpleado);
+        return empelados;
+     
+     
+    
 }
+
+static Directivo crearDirectivos() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Crear un directivo");
+        String nombreDirectivo = sc.nextLine();
+        System.out.println("Edad del empleado");
+        int edadDirectivo= sc.nextInt();
+        Directivo directivos = new Directivo(nombreDirectivo, edadDirectivo);
+        return directivos;
+     
+    
+}
+  
+
+static void verNumeroTrabajadores () {
+    //suma de las 2 listas
+    
+}
+
+static void verDatosEmpleados () {
+    
+    //2 bucles
+}
+
+
+static void verSalarioLiquidoRetencion (ArrayList<Trabajador>listaEmpleados) {
+    
+    for (int i = 0; i <listaEmpleados.size; i++) {
+        Empleado empleadoX = listaEmpleados.get(i);
+        empleadoX.mostrarSalarioLiquido();
+    }
+    
+}
+
+
+
+}
+
+
