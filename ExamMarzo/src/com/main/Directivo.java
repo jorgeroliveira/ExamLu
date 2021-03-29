@@ -11,10 +11,17 @@ package gal.teis.examen_Ejercicio;
  */
 public class Directivo extends Trabajador {
     
+    private double IRPF;
+    
     public Directivo(String nombre, int edad, int antiguedad) {
         super(nombre, edad, antiguedad);
     }
     
-   
+  public double calcularSueldo() {
+        
+      double sueldo=0;
+        sueldo= calcularSueldo()+ 800;
+         return sueldo;   
+  } 
     
 }
