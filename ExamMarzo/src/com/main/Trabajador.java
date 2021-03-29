@@ -51,23 +51,14 @@ class Trabajador {
         this.antiguedad = antiguedad;
     }
 
-    
-    
-    
-    
     public int getANTNOVATO() {
         return ANT_NOVATO;
     }
 
-    
     public void setANTNOVATO(int ANT_MADURO) {
         this.ANT_MADURO = 0;
     }
 
-    
-    
-    
-    
     public static int getANT_MADURO() {
         return ANT_MADURO;
     }
@@ -76,10 +67,6 @@ class Trabajador {
         Trabajador.ANT_MADURO = ANT_MADURO;
     }
 
-    
-    
-    
-    
     public static double getSueldoBase() {
         return sueldoBase;
     }
@@ -88,10 +75,6 @@ class Trabajador {
         Trabajador.sueldoBase = sueldoBase;
     }
 
-    
-    
-    
-    
     public static int getANT_NOVATO() {
         return ANT_NOVATO;
     }
@@ -100,9 +83,6 @@ class Trabajador {
         Trabajador.ANT_NOVATO = ANT_NOVATO;
     }
 
-    
-    
-    
     public static int getANT_EXPERTO() {
         return ANT_EXPERTO;
     }
@@ -110,15 +90,33 @@ class Trabajador {
     public static void setANT_EXPERTO(int ANT_EXPERTO) {
         Trabajador.ANT_EXPERTO = ANT_EXPERTO;
     }
-    
-    
+
     //método
-    
     public double calcularSueldo() {
-        return sueldoBase + this.sueldoBase + 150 + sueldoBase + this.sueldoBase + 300 +
-                sueldoBase + this.sueldoBase + 600;
+
+        double sueldo = 0; //en base a la antiguedad
+        int aux = this.antiguedad; // se guarda la variable antiguedad 
+
+        switch (aux) {
+            case 0:
+
+                sueldo = this.sueldoBase + 150;
+
+                break;
+
+            case 1:
+
+                sueldo = this.sueldoBase + 300;
+                break;
+
+            case 2:
+                sueldo = this.sueldoBase + 600;
+
+                break;
+
+        }
+        return sueldo;
+
     }
-    
-    
 
 }
