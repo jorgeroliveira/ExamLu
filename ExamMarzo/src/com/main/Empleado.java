@@ -13,10 +13,21 @@ public class Empleado extends Trabajador {
     
     private double IRPF;
     
+    public Empleado (String nombre, int edad) {
+       super(nombre, edad);
+    }
+    
+    
     public Empleado(String nombre, int edad, int antiguedad) {
         super(nombre, edad, antiguedad);
     }
 
+    public Empleado(double IRPF, String nombre, int edad, int antiguedad) {
+        super(nombre, edad, antiguedad);
+        this.IRPF = IRPF;
+    }
+
+    
     
     
     
@@ -51,4 +62,5 @@ public class Empleado extends Trabajador {
         salario = (calcularSueldo()- mostrarRetencion());
         return salario;
     }
+    
 }

@@ -12,16 +12,60 @@ package gal.teis.examen_Ejercicio;
 public class Directivo extends Trabajador {
     
     private double IRPF;
+
     
+    public Directivo(String nombre, int edad) {
+        super(nombre, edad);
+    }
+    
+    
+    
+            
     public Directivo(String nombre, int edad, int antiguedad) {
         super(nombre, edad, antiguedad);
     }
+
+    public Directivo(double IRPF, String nombre, int edad, int antiguedad) {
+        super(nombre, edad, antiguedad);
+        this.IRPF = IRPF;
+    }
+
+    
+    
+    
+    
+    
+    public double getIRPF() {
+        return IRPF;
+    }
+
+    public void setIRPF(double IRPF) {
+        this.IRPF = IRPF;
+    }
+    
+    
+    
+    
     
   public double calcularSueldo() {
         
       double sueldo=0;
-        sueldo= calcularSueldo()+ 800;
+        sueldo= super.calcularSueldo()+ 800;
          return sueldo;   
   } 
+  
+  
+    public double mostrarRetencion () {
+        double retencion=0;
+        retencion = (calcularSueldo() *  IRPF/100);
+        
+        return retencion;
+    }
+    
+    public double mostrarSalario () {
+        double salario=0;
+        salario = (calcularSueldo()- mostrarRetencion());
+        return salario;
+    }
     
 }
