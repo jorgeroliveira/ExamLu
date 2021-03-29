@@ -19,8 +19,11 @@ public class Principal {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-         ArrayList<Trabajador> listaEmpleados = new ArrayList();
-          ArrayList<Trabajador> listaDirectivos = new ArrayList();
+        
+         Principal principal = new Principal ();
+         ArrayList<Empleado> listaEmpleados = new ArrayList();
+          ArrayList<Directivo> listaDirectivos = new ArrayList();
+          
           
          Scanner sc = new Scanner(System.in);
         int opcion=0;
@@ -41,20 +44,30 @@ public class Principal {
                     break;
 
                 case 2:
-                   Directivo d= crearDirectivos();
+                   Directivo d = crearDirectivos();
                    listaDirectivos.add(d);
                     break;
 
                 case 3:
-                    System.out.println("Ver números de trabjadores que se han creado");
+                    System.out.println("Ver números de trabjadores que se han creado: "+
+                            (listaEmpleados.size()+ listaDirectivos.size())+ " trabajadores");
+                    
                     break;
 
+                    
+                    
                 case 4:
-                    System.out.println("Datos personales de los empleados");
+                   principal.verDatosEmpleados (listaEmpleados);
+                    
+                    
+                    
+                    
                     break;
 
                 case 5:
-                    System.out.println("Salario Líquido");
+                    
+                    principal.verSalarioLiquidoRetencion (listaEmpleados);
+                    
                     break;
                     
                 case 6:
@@ -71,7 +84,7 @@ public class Principal {
    
 
   static void  mostrarMenu() {
-
+       System.out.println("**************Menu**************");
         System.out.println("1- Crear Empleados");
         System.out.println("2- Crear Directivos");
         System.out.println("3- Ver números de trabjadores que se han creado");
@@ -108,22 +121,24 @@ static Directivo crearDirectivos() {
 }
   
 
-static void verNumeroTrabajadores () {
-    //suma de las 2 listas
+
+static void verDatosEmpleados (ArrayList<Empleado>listaEmpleados) {
     
+    for (int i = 0; i <listaEmpleados.size(); i++) {
+        System.out.println("Nombre: " +listaEmpleados.get(i).getNombre()+
+                " , Edad: " + listaEmpleados.get(i).getEdad() + 
+                " y Antiguedad: " + listaEmpleados.get(i).getAntiguedad());
+        
+    }
+  
 }
+        
 
-static void verDatosEmpleados () {
+private void verSalarioLiquidoRetencion (ArrayList<Empleado>listaEmpleados) {
     
-    //2 bucles
-}
-
-
-static void verSalarioLiquidoRetencion (ArrayList<Trabajador>listaEmpleados) {
-    
-    for (int i = 0; i <listaEmpleados.size; i++) {
-        Empleado empleadoX = listaEmpleados.get(i);
-        empleadoX.mostrarSalarioLiquido();
+    for (int i = 0; i <listaEmpleados.size(); i++) {
+        Empleado empleadoX = listaEmpleados.get(i); //(i)un elemento de la lista
+        System.out.println("Salario líquido: " +empleadoX.mostrarSalarioLiquido() + " y Parte retenida: " + empleadoX.mostrarRetencion());
     }
     
 }
@@ -131,5 +146,7 @@ static void verSalarioLiquidoRetencion (ArrayList<Trabajador>listaEmpleados) {
 
 
 }
+
+
 
 
