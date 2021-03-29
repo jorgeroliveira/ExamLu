@@ -9,9 +9,9 @@ package gal.teis.examen_Ejercicio;
  *
  * @author luPinheiro
  */
-public class Directivo extends Trabajador {
+public class Empleado extends Trabajador {
     
-    public Directivo(String nombre, int edad, int antiguedad) {
+    public Empleado(String nombre, int edad, int antiguedad) {
         super(nombre, edad, antiguedad);
     }
     
